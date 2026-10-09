@@ -22,8 +22,7 @@ reference-location: section
 
 format:
   html:
-    theme:
-      light: cosmo               
+    theme: cosmo               
     toc: true                    
     toc-depth: 3
     toc-location: right
@@ -31,7 +30,6 @@ format:
     code-copy: true              
     code-tools: true             
     df-print: paged              
-    # css: assets/styles.scss      # Mantenemos esto comentado para que no rompa en la web
     favicon: assets/favicon-2025-20251031.svg 
     anchor-sections: true
     smooth-scroll: true
@@ -44,29 +42,6 @@ format:
       - includes/renumber.html    
       - includes/code-toggle.html 
       - includes/toc-enhance.html
-
-  pdf:
-    pdf-engine: xelatex          
-    toc: false                   
-    lof: false
-    lot: false
-    keep-tex: true
-    documentclass: scrbook       
-    classoption:
-      - oneside
-    papersize: a4                
-    geometry:
-      - top=25mm
-      - bottom=25mm
-      - left=30mm
-      - right=20mm
-    colorlinks: true
-    number-sections: true
-    include-in-header: includes/preamble.tex     
-    include-before-body: includes/title-pdf.tex  
-    include-after-body: includes/backmatter.tex  
-    fig-cap-location: top
-    tbl-cap-location: top
 
 execute:
   echo: true                     
@@ -82,4 +57,4 @@ crossref:
   appendix-delim: " - "
 
 metadata-files:
-  - _metadata.yml               
+  - _metadata.yml

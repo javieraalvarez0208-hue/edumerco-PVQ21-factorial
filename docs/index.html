@@ -2,18 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Nombre Apellido">
+<meta name="author" content="Javiera Álvarez Cárdenas">
 
-<title>Reportes FACSO - Plantilla Quarto</title>
+<title>Análisis factorial del PVQ-21 de Schwartz en EDUMERCO Adultos</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -79,52 +85,17 @@ div.csl-indent {
 }</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./00-prefacio.html" rel="next">
-<link href="./assets/favicon-2025-20251031.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b33f1839d1ae7e37d8eaf9c424345f9b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No se han encontrado resultados",
-    "search-matching-documents-text": "documentos encontrados",
-    "search-copy-link-title": "Copiar el enlace en la búsqueda",
-    "search-hide-matches-text": "Ocultar resultados adicionales",
-    "search-more-match-text": "resultado adicional en este documento",
-    "search-more-matches-text": "resultados adicionales en este documento",
-    "search-clear-button-title": "Borrar",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Buscar"
-  }
-}</script>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap-496d54825f4a5d13459347af1c2e7183.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <style>html{ scroll-behavior: smooth; }</style>
 <style>
 #quarto-document-content p,
@@ -137,151 +108,54 @@ p {
   text-justify: inter-word;
 }
 </style>
+<script src="index_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="index_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="assets/styles.scss">
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="quarto-light">
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Abstract</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./assets/cover.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./assets/cover.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
-      </a>
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Reportes FACSO - Plantilla Quarto</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/KAravena/reportesfacsobook_template" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
-    <a href="./reportes-facso-plantilla.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Buscar"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Abstract</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./00-prefacio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prefacio</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01-introduccion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./02-marco-teorico.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Antecedentes conceptuales y empíricos</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./03-metodologia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Metodología</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04-resultados.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Resultados</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05-discusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Discusión</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./06-conclusiones.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Conclusiones</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Referencias</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Apéndices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./apendices/A-encuestas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Instrumentos de levantamiento</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./apendices/B-tablas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Tablas adicionales</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#presentación-y-objetivos" id="toc-presentación-y-objetivos" class="nav-link active" data-scroll-target="#presentación-y-objetivos"><span class="header-section-number">1</span> Presentación y Objetivos</a>
+  <ul class="collapse">
+  <li><a href="#modelo-de-valores-de-schwartz" id="toc-modelo-de-valores-de-schwartz" class="nav-link" data-scroll-target="#modelo-de-valores-de-schwartz"><span class="header-section-number">1.1</span> Modelo de valores de Schwartz</a></li>
+  </ul></li>
+  <li><a href="#preparación-de-los-datos" id="toc-preparación-de-los-datos" class="nav-link" data-scroll-target="#preparación-de-los-datos"><span class="header-section-number">2</span> Preparación de los datos</a>
+  <ul class="collapse">
+  <li><a href="#carga-de-los-datos" id="toc-carga-de-los-datos" class="nav-link" data-scroll-target="#carga-de-los-datos"><span class="header-section-number">2.1</span> Carga de los datos</a></li>
+  <li><a href="#recodificación-de-datos-perdidos" id="toc-recodificación-de-datos-perdidos" class="nav-link" data-scroll-target="#recodificación-de-datos-perdidos"><span class="header-section-number">2.2</span> Recodificación de datos perdidos</a></li>
+  <li><a href="#selección-de-casos" id="toc-selección-de-casos" class="nav-link" data-scroll-target="#selección-de-casos"><span class="header-section-number">2.3</span> Selección de casos</a></li>
+  <li><a href="#definición-de-los-valores" id="toc-definición-de-los-valores" class="nav-link" data-scroll-target="#definición-de-los-valores"><span class="header-section-number">2.4</span> Definición de los valores</a></li>
+  <li><a href="#versión-centrada-de-las-respuestas" id="toc-versión-centrada-de-las-respuestas" class="nav-link" data-scroll-target="#versión-centrada-de-las-respuestas"><span class="header-section-number">2.5</span> Versión centrada de las respuestas</a></li>
+  </ul></li>
+  <li><a href="#estadísticos-descriptivos" id="toc-estadísticos-descriptivos" class="nav-link" data-scroll-target="#estadísticos-descriptivos"><span class="header-section-number">3</span> Estadísticos descriptivos</a>
+  <ul class="collapse">
+  <li><a href="#por-ítem" id="toc-por-ítem" class="nav-link" data-scroll-target="#por-ítem"><span class="header-section-number">3.1</span> Por ítem</a></li>
+  <li><a href="#por-valor" id="toc-por-valor" class="nav-link" data-scroll-target="#por-valor"><span class="header-section-number">3.2</span> Por valor</a></li>
+  </ul></li>
+  <li><a href="#relación-entre-los-valores" id="toc-relación-entre-los-valores" class="nav-link" data-scroll-target="#relación-entre-los-valores"><span class="header-section-number">4</span> Relación entre los valores</a></li>
+  <li><a href="#análisis-factorial-exploratorio" id="toc-análisis-factorial-exploratorio" class="nav-link" data-scroll-target="#análisis-factorial-exploratorio"><span class="header-section-number">5</span> Análisis factorial exploratorio</a>
+  <ul class="collapse">
+  <li><a href="#adecuación-de-los-datos-kmo-y-bartlett" id="toc-adecuación-de-los-datos-kmo-y-bartlett" class="nav-link" data-scroll-target="#adecuación-de-los-datos-kmo-y-bartlett"><span class="header-section-number">5.1</span> Adecuación de los datos (KMO y Bartlett)</a></li>
+  <li><a href="#número-de-factores" id="toc-número-de-factores" class="nav-link" data-scroll-target="#número-de-factores"><span class="header-section-number">5.2</span> Número de factores</a></li>
+  </ul></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias"><span class="header-section-number">6</span> Referencias</a></li>
   </ul>
-</nav>
-    </div>
-<!-- main -->
+<div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Reportes FACSO - Plantilla Quarto</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
-<p class="subtitle lead">Tesis, informes e investigaciones</p>
+<div class="quarto-title-block"><div><h1 class="title">Análisis factorial del PVQ-21 de Schwartz en EDUMERCO Adultos</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+<p class="subtitle lead">Informe</p>
 </div>
 
 
@@ -290,11 +164,11 @@ p {
   <div class="quarto-title-meta-heading">Afiliación</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author">Nombre Apellido <a href="https://orcid.org/0000-0000-0000-0000" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    <p class="author">Javiera Álvarez Cárdenas </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            Departamento de Sociologia, Universidad de Chile
+            Departamento de Sociología, Universidad de Chile
           </p>
       </div>
   </div>
@@ -305,7 +179,7 @@ p {
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">17 de noviembre de 2025</p>
+      <p class="date">9 de octubre de 2026</p>
     </div>
   </div>
   
@@ -317,540 +191,870 @@ p {
 </header>
 
 
-<style>
-nav#TOC { display: none !important; }
-div[data-when-format="pdf"] { display: none !important; }
-</style>
-<p><span class="keywords-line"><strong>Palabras clave:</strong> sociología, educación, Chile</span></p>
-<section id="abstract" class="level1 unnumbered">
-<h1 class="unnumbered">Abstract</h1>
-<p>Resumen en español (200-300). Expón propósito, método, resultados clave y conclusiones. Puede incluir citas como <span class="citation" data-cites="xie2017bookdown">Xie (<a href="references.html#ref-xie2017bookdown" role="doc-biblioref">2017</a>)</span> y se actualizarán automáticamente.</p>
-
-
-<!-- -->
-
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
-<div id="ref-xie2017bookdown" class="csl-entry" role="listitem">
-Xie, Y. (2017). <em>bookdown: Authoring Books and Technical Documents with R Markdown</em>. Chapman; Hall/CRC.
+<section id="presentación-y-objetivos" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Presentación y Objetivos</h1>
+<p>Este informe presenta el análisis factorial de la escala de valores de Schwartz (PVQ-21) utilizando los datos del estudio EDUMERCO Adultos.</p>
+<section id="modelo-de-valores-de-schwartz" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="modelo-de-valores-de-schwartz"><span class="header-section-number">1.1</span> Modelo de valores de Schwartz</h2>
+<p>Schwartz plantea que las personas comparten diez valores básicos, organizados en una estructura circular:</p>
+<ul>
+<li>Los valores <strong>vecinos</strong> son compatibles entre sí.</li>
+<li>Los valores <strong>opuestos</strong> se encuentran en mayor tensión.</li>
+<li>Los diez valores se agrupan en <strong>cuatro dimensiones</strong> de orden superior: apertura al cambio, autoensalzamiento, conservación y autotrascendencia.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Valor</th>
+<th style="text-align: left;">Ítems del PVQ-21</th>
+<th style="text-align: left;">Dimensión</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Estimulación</td>
+<td style="text-align: left;">06, 15</td>
+<td style="text-align: left;">Apertura al cambio</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hedonismo</td>
+<td style="text-align: left;">10, 21</td>
+<td style="text-align: left;">Apertura al cambio / autoensalzamiento</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Logro</td>
+<td style="text-align: left;">04, 13</td>
+<td style="text-align: left;">Autoensalzamiento</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Poder</td>
+<td style="text-align: left;">02, 17</td>
+<td style="text-align: left;">Autoensalzamiento</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Seguridad</td>
+<td style="text-align: left;">05, 14</td>
+<td style="text-align: left;">Conservación</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Conformidad</td>
+<td style="text-align: left;">07, 16</td>
+<td style="text-align: left;">Conservación</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tradición</td>
+<td style="text-align: left;">09, 20</td>
+<td style="text-align: left;">Conservación</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Benevolencia</td>
+<td style="text-align: left;">12, 18</td>
+<td style="text-align: left;">Autotrascendencia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Universalismo</td>
+<td style="text-align: left;">03, 08, 19</td>
+<td style="text-align: left;">Autotrascendencia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Autodirección</td>
+<td style="text-align: left;">01, 11</td>
+<td style="text-align: left;">Apertura al cambio</td>
+</tr>
+</tbody>
+</table>
+<p>El PVQ-21 aplicado en EDUMERCO es una versión corta, con dos ítems por valor y tres para universalismo <span class="citation" data-cites="xie2017bookdown">(<a href="#ref-xie2017bookdown" role="doc-biblioref">Xie, 2017</a>)</span>.</p>
+</section>
+</section>
+<section id="preparación-de-los-datos" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Preparación de los datos</h1>
+<section id="carga-de-los-datos" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="carga-de-los-datos"><span class="header-section-number">2.1</span> Carga de los datos</h2>
+<p>Se cargan los datos de EDUMERCO Adultos y se seleccionan los 21 ítems del PVQ-21 (<code>values_01</code> a <code>values_21</code>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"input/data/completas-280125.RData"</span>)   <span class="co"># carga el objeto `data`</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"values_"</span>, <span class="fu">sprintf</span>(<span class="st">"%02d"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="recodificación-de-datos-perdidos" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="recodificación-de-datos-perdidos"><span class="header-section-number">2.2</span> Recodificación de datos perdidos</h2>
+<p>Las respuestas 7 (“No sé”) y 8 (“Preferiría no responder”) se recodifican como <code>NA</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>vals <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(items)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.numeric),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">na_if</span>(<span class="fu">na_if</span>(.x, <span class="dv">7</span>), <span class="dv">8</span>)))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="selección-de-casos" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="selección-de-casos"><span class="header-section-number">2.3</span> Selección de casos</h2>
+<p>Se conservan las personas que respondieron al menos 15 de los 21 ítems.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n_total  <span class="ot">&lt;-</span> <span class="fu">nrow</span>(vals)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>vals     <span class="ot">&lt;-</span> vals <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">rowSums</span>(<span class="sc">!</span><span class="fu">is.na</span>(.)) <span class="sc">&gt;=</span> <span class="dv">15</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>n_usados <span class="ot">&lt;-</span> <span class="fu">nrow</span>(vals)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Se utilizan 3.357 de 3.484 personas (96,4%).</p>
+</section>
+<section id="definición-de-los-valores" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="definición-de-los-valores"><span class="header-section-number">2.4</span> Definición de los valores</h2>
+<p>Cada valor de Schwartz se define como el conjunto de ítems que lo miden, en el orden del círculo teórico.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>valores10 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">estimulacion  =</span> <span class="fu">c</span>(<span class="st">"06"</span>, <span class="st">"15"</span>), <span class="at">hedonismo     =</span> <span class="fu">c</span>(<span class="st">"10"</span>, <span class="st">"21"</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">logro         =</span> <span class="fu">c</span>(<span class="st">"04"</span>, <span class="st">"13"</span>), <span class="at">poder         =</span> <span class="fu">c</span>(<span class="st">"02"</span>, <span class="st">"17"</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">seguridad     =</span> <span class="fu">c</span>(<span class="st">"05"</span>, <span class="st">"14"</span>), <span class="at">conformidad   =</span> <span class="fu">c</span>(<span class="st">"07"</span>, <span class="st">"16"</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">tradicion     =</span> <span class="fu">c</span>(<span class="st">"09"</span>, <span class="st">"20"</span>), <span class="at">benevolencia  =</span> <span class="fu">c</span>(<span class="st">"12"</span>, <span class="st">"18"</span>),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">universalismo =</span> <span class="fu">c</span>(<span class="st">"03"</span>, <span class="st">"08"</span>, <span class="st">"19"</span>), <span class="at">autodireccion =</span> <span class="fu">c</span>(<span class="st">"01"</span>, <span class="st">"11"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">estimulacion =</span> <span class="st">"Estimulación"</span>, <span class="at">hedonismo =</span> <span class="st">"Hedonismo"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">logro =</span> <span class="st">"Logro"</span>, <span class="at">poder =</span> <span class="st">"Poder"</span>, <span class="at">seguridad =</span> <span class="st">"Seguridad"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">conformidad =</span> <span class="st">"Conformidad"</span>, <span class="at">tradicion =</span> <span class="st">"Tradición"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">benevolencia =</span> <span class="st">"Benevolencia"</span>, <span class="at">universalismo =</span> <span class="st">"Universalismo"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">autodireccion =</span> <span class="st">"Autodirección"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="versión-centrada-de-las-respuestas" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="versión-centrada-de-las-respuestas"><span class="header-section-number">2.5</span> Versión centrada de las respuestas</h2>
+<p>Se construye además una versión centrada, restando a cada respuesta el promedio de la persona, para considerar la importancia relativa de los valores.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>vals_c <span class="ot">&lt;-</span> vals <span class="sc">-</span> <span class="fu">rowMeans</span>(vals, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="estadísticos-descriptivos" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Estadísticos descriptivos</h1>
+<section id="por-ítem" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="por-ítem"><span class="header-section-number">3.1</span> Por ítem</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>descriptivos <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">describe</span>(vals)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>descriptivos <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(n, mean, sd, min, max, skew, kurtosis) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">round</span>(.x, <span class="dv">2</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"N"</span>, <span class="st">"Media"</span>, <span class="st">"DE"</span>, <span class="st">"Mín."</span>, <span class="st">"Máx."</span>, <span class="st">"Asimetría"</span>, <span class="st">"Curtosis"</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">format.args =</span> <span class="fu">list</span>(<span class="at">big.mark =</span> <span class="st">"."</span>, <span class="at">decimal.mark =</span> <span class="st">","</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-descriptivos-item" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-descriptivos-item-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Lista de tablas&nbsp;1: Descriptivos por ítem (escala de 1 a 6)
+</figcaption>
+<div aria-describedby="tbl-descriptivos-item-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table cell caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">N</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Media</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">DE</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mín.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Máx.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Asimetría</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Curtosis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">values_01</td>
+<td style="text-align: right;">3.318</td>
+<td style="text-align: right;">3,87</td>
+<td style="text-align: right;">1,24</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,09</td>
+<td style="text-align: right;">-0,55</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">values_02</td>
+<td style="text-align: right;">3.335</td>
+<td style="text-align: right;">2,44</td>
+<td style="text-align: right;">1,26</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0,96</td>
+<td style="text-align: right;">0,40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">values_03</td>
+<td style="text-align: right;">3.342</td>
+<td style="text-align: right;">4,81</td>
+<td style="text-align: right;">1,19</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,93</td>
+<td style="text-align: right;">0,19</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">values_04</td>
+<td style="text-align: right;">3.317</td>
+<td style="text-align: right;">2,95</td>
+<td style="text-align: right;">1,38</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0,50</td>
+<td style="text-align: right;">-0,63</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">values_05</td>
+<td style="text-align: right;">3.334</td>
+<td style="text-align: right;">4,78</td>
+<td style="text-align: right;">1,23</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,88</td>
+<td style="text-align: right;">0,02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">values_06</td>
+<td style="text-align: right;">3.332</td>
+<td style="text-align: right;">3,88</td>
+<td style="text-align: right;">1,38</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,09</td>
+<td style="text-align: right;">-0,90</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">values_07</td>
+<td style="text-align: right;">3.289</td>
+<td style="text-align: right;">3,55</td>
+<td style="text-align: right;">1,49</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,01</td>
+<td style="text-align: right;">-1,04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">values_08</td>
+<td style="text-align: right;">3.339</td>
+<td style="text-align: right;">4,32</td>
+<td style="text-align: right;">1,21</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,48</td>
+<td style="text-align: right;">-0,35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">values_09</td>
+<td style="text-align: right;">3.334</td>
+<td style="text-align: right;">4,55</td>
+<td style="text-align: right;">1,23</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,61</td>
+<td style="text-align: right;">-0,35</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">values_10</td>
+<td style="text-align: right;">3.329</td>
+<td style="text-align: right;">3,74</td>
+<td style="text-align: right;">1,36</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,07</td>
+<td style="text-align: right;">-0,84</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">values_11</td>
+<td style="text-align: right;">3.336</td>
+<td style="text-align: right;">4,55</td>
+<td style="text-align: right;">1,26</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,60</td>
+<td style="text-align: right;">-0,44</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">values_12</td>
+<td style="text-align: right;">3.336</td>
+<td style="text-align: right;">4,70</td>
+<td style="text-align: right;">1,15</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,66</td>
+<td style="text-align: right;">-0,28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">values_13</td>
+<td style="text-align: right;">3.317</td>
+<td style="text-align: right;">3,25</td>
+<td style="text-align: right;">1,42</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0,34</td>
+<td style="text-align: right;">-0,84</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">values_14</td>
+<td style="text-align: right;">3.308</td>
+<td style="text-align: right;">4,77</td>
+<td style="text-align: right;">1,33</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,97</td>
+<td style="text-align: right;">0,10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">values_15</td>
+<td style="text-align: right;">3.330</td>
+<td style="text-align: right;">3,11</td>
+<td style="text-align: right;">1,39</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0,38</td>
+<td style="text-align: right;">-0,70</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">values_16</td>
+<td style="text-align: right;">3.312</td>
+<td style="text-align: right;">4,09</td>
+<td style="text-align: right;">1,35</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,26</td>
+<td style="text-align: right;">-0,84</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">values_17</td>
+<td style="text-align: right;">3.298</td>
+<td style="text-align: right;">3,35</td>
+<td style="text-align: right;">1,41</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0,26</td>
+<td style="text-align: right;">-0,89</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">values_18</td>
+<td style="text-align: right;">3.329</td>
+<td style="text-align: right;">4,62</td>
+<td style="text-align: right;">1,21</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,69</td>
+<td style="text-align: right;">-0,14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">values_19</td>
+<td style="text-align: right;">3.331</td>
+<td style="text-align: right;">4,76</td>
+<td style="text-align: right;">1,21</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,78</td>
+<td style="text-align: right;">-0,12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">values_20</td>
+<td style="text-align: right;">3.310</td>
+<td style="text-align: right;">3,68</td>
+<td style="text-align: right;">1,53</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-0,11</td>
+<td style="text-align: right;">-1,04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">values_21</td>
+<td style="text-align: right;">3.310</td>
+<td style="text-align: right;">3,59</td>
+<td style="text-align: right;">1,39</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0,07</td>
+<td style="text-align: right;">-0,87</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 </section>
+<section id="por-valor" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="por-valor"><span class="header-section-number">3.2</span> Por valor</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tabla_valores <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(valores10),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(v) {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    vars <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"values_"</span>, valores10[[v]])</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">valor =</span> nombres[v],</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">puntaje =</span> <span class="fu">rowMeans</span>(vals[, vars], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>resumen_valores <span class="ot">&lt;-</span> tabla_valores <span class="sc">%&gt;%</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(valor) <span class="sc">%&gt;%</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">n        =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(puntaje)),</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">promedio =</span> <span class="fu">mean</span>(puntaje, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">de       =</span> <span class="fu">sd</span>(puntaje, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups  =</span> <span class="st">"drop"</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(promedio))</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>resumen_valores <span class="sc">%&gt;%</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(promedio, de), <span class="sc">~</span> <span class="fu">round</span>(.x, <span class="dv">2</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Valor"</span>, <span class="st">"N"</span>, <span class="st">"Media"</span>, <span class="st">"DE"</span>),</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="st">"lrrr"</span>,</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">format.args =</span> <span class="fu">list</span>(<span class="at">big.mark =</span> <span class="st">"."</span>, <span class="at">decimal.mark =</span> <span class="st">","</span>)</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-descriptivos-valor" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-descriptivos-valor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Lista de tablas&nbsp;2: Puntaje promedio por valor (escala de 1 a 6)
+</figcaption>
+<div aria-describedby="tbl-descriptivos-valor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-striped table-hover cell caption-top table-sm small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Valor</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">N</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Media</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">DE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Seguridad</td>
+<td style="text-align: right;">3.354</td>
+<td style="text-align: right;">4,77</td>
+<td style="text-align: right;">1,08</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Benevolencia</td>
+<td style="text-align: right;">3.352</td>
+<td style="text-align: right;">4,66</td>
+<td style="text-align: right;">1,00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Universalismo</td>
+<td style="text-align: right;">3.357</td>
+<td style="text-align: right;">4,63</td>
+<td style="text-align: right;">0,91</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Autodirección</td>
+<td style="text-align: right;">3.356</td>
+<td style="text-align: right;">4,21</td>
+<td style="text-align: right;">1,03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tradición</td>
+<td style="text-align: right;">3.355</td>
+<td style="text-align: right;">4,12</td>
+<td style="text-align: right;">1,06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Conformidad</td>
+<td style="text-align: right;">3.348</td>
+<td style="text-align: right;">3,82</td>
+<td style="text-align: right;">1,17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hedonismo</td>
+<td style="text-align: right;">3.353</td>
+<td style="text-align: right;">3,67</td>
+<td style="text-align: right;">1,20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Estimulación</td>
+<td style="text-align: right;">3.353</td>
+<td style="text-align: right;">3,50</td>
+<td style="text-align: right;">1,19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Logro</td>
+<td style="text-align: right;">3.349</td>
+<td style="text-align: right;">3,10</td>
+<td style="text-align: right;">1,25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Poder</td>
+<td style="text-align: right;">3.355</td>
+<td style="text-align: right;">2,90</td>
+<td style="text-align: right;">1,08</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="relación-entre-los-valores" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Relación entre los valores</h1>
+<p>Para esto se usan los puntajes centrados (cada respuesta menos el promedio de la persona), que es la corrección que recomienda Schwartz. Al centrar aparecen correlaciones negativas por construcción, así que es una exploración y no una prueba de la estructura circular.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">map_dfc</span>(valores10,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                  <span class="sc">~</span> <span class="fu">rowMeans</span>(vals_c[, <span class="fu">paste0</span>(<span class="st">"values_"</span>, .x)], <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">cor</span>(scores, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>orden <span class="ot">&lt;-</span> <span class="fu">names</span>(valores10)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(<span class="fu">as.table</span>(R)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Var1 =</span> <span class="fu">factor</span>(nombres[<span class="fu">as.character</span>(Var1)], <span class="at">levels =</span> nombres[orden]),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">Var2 =</span> <span class="fu">factor</span>(nombres[<span class="fu">as.character</span>(Var2)], <span class="at">levels =</span> <span class="fu">rev</span>(nombres[orden]))) <span class="sc">%&gt;%</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Var1, Var2, <span class="at">fill =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">format</span>(<span class="fu">round</span>(Freq, <span class="dv">2</span>), <span class="at">decimal.mark =</span> <span class="st">","</span>)), <span class="at">size =</span> <span class="fl">2.8</span>) <span class="sc">+</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(<span class="at">low =</span> <span class="st">"firebrick"</span>, <span class="at">mid =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"steelblue"</span>,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">fill =</span> <span class="st">"r"</span>) <span class="sc">+</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-correlaciones" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-correlaciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-correlaciones-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-correlaciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Lista de figuras&nbsp;1: Correlaciones entre valores (puntajes centrados)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Varios valores vecinos correlacionan positivamente (poder–logro, 0,34; benevolencia–universalismo, 0,27; estimulación–hedonismo, 0,26; conformidad–tradición, 0,19) y algunos opuestos correlacionan negativamente (poder–universalismo, −0,46; logro–universalismo, −0,41; estimulación–seguridad, −0,35). Autodirección tiene correlaciones cercanas a cero con casi todos los valores, y seguridad se asocia poco con conformidad y tradición.</p>
+</section>
+<section id="análisis-factorial-exploratorio" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Análisis factorial exploratorio</h1>
+<section id="adecuación-de-los-datos-kmo-y-bartlett" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="adecuación-de-los-datos-kmo-y-bartlett"><span class="header-section-number">5.1</span> Adecuación de los datos (KMO y Bartlett)</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cor_poly <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">polychoric</span>(vals)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>kmo   <span class="ot">&lt;-</span> <span class="fu">KMO</span>(cor_poly<span class="sc">$</span>rho)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>bart  <span class="ot">&lt;-</span> <span class="fu">cortest.bartlett</span>(cor_poly<span class="sc">$</span>rho, <span class="at">n =</span> <span class="fu">nrow</span>(vals))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>El índice KMO global fue de 0,88, y la prueba de Bartlett fue significativa (χ²(210) = 22.614,3, p &lt; 0,001), por lo que los datos son adecuados para un análisis factorial.</p>
+</section>
+<section id="número-de-factores" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="número-de-factores"><span class="header-section-number">5.2</span> Número de factores</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pa <span class="ot">&lt;-</span> <span class="fu">fa.parallel</span>(cor_poly<span class="sc">$</span>rho, <span class="at">n.obs =</span> <span class="fu">nrow</span>(vals), <span class="at">fa =</span> <span class="st">"fa"</span>, <span class="at">fm =</span> <span class="st">"minres"</span>,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">plot =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">factor =</span> <span class="fu">seq_along</span>(pa<span class="sc">$</span>fa.values),</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="st">`</span><span class="at">Datos observados</span><span class="st">`</span> <span class="ot">=</span> pa<span class="sc">$</span>fa.values,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       <span class="st">`</span><span class="at">Datos simulados (azar)</span><span class="st">`</span> <span class="ot">=</span> pa<span class="sc">$</span>fa.sim) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>factor, <span class="at">names_to =</span> <span class="st">"serie"</span>, <span class="at">values_to =</span> <span class="st">"autovalor"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(factor, autovalor, <span class="at">color =</span> serie, <span class="at">linetype =</span> serie)) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"grey70"</span>) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Datos observados"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Datos simulados (azar)"</span> <span class="ot">=</span> <span class="st">"firebrick"</span>)) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Datos observados"</span> <span class="ot">=</span> <span class="st">"solid"</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"Datos simulados (azar)"</span> <span class="ot">=</span> <span class="st">"dashed"</span>)) <span class="sc">+</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Número de factor"</span>, <span class="at">y =</span> <span class="st">"Autovalor"</span>, <span class="at">color =</span> <span class="cn">NULL</span>, <span class="at">linetype =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-analisis-paralelo" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-analisis-paralelo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-analisis-paralelo-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-analisis-paralelo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Lista de figuras&nbsp;2: Análisis paralelo
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>La línea azul son los datos y la roja punteada lo esperable por azar, se consideran los factores donde la azul queda por encima.</p>
+<p>El análisis paralelo sugiere 6 factores.</p>
+</section>
+</section>
+<section id="referencias" class="level1" data-number="6">
 
-</main> <!-- /main -->
+<!-- -->
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">6 Referencias</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-xie2017bookdown" class="csl-entry" role="listitem">
+Xie, Y. (2017). <em>bookdown: Authoring Books and Technical Documents with R Markdown</em>. Chapman; Hall/CRC.
+</div>
+</div></section></div></main>
+<!-- /main column -->
 <script>
-
 window.addEventListener('load', function () {
-
   const selectors = [
-
     '.quarto-sidebar .logo img',
-
     '.quarto-sidebar .quarto-logo img',
-
     '.sidebar-logo img',
-
     '.site-logo img',
-
     'a.quarto-site-logo img'
-
   ];
 
-
-
   let logoImg = null;
-
   for (const selector of selectors) {
-
     logoImg = document.querySelector(selector);
-
     if (logoImg) break;
-
   }
-
-
 
   if (logoImg) {
-
     const link = document.createElement('a');
-
     link.href = 'index.html';
-
     logoImg.parentNode.insertBefore(link, logoImg);
-
     link.appendChild(logoImg);
-
   }
 
-
-
   const decodeMeta = (value) => {
-
     if (!value) return '';
-
     const trimmed = value.trim();
-
     if (!trimmed || trimmed.startsWith('{{')) return '';
-
     const textarea = document.createElement('textarea');
-
     textarea.innerHTML = trimmed;
-
     return textarea.value.trim();
-
   };
 
-
-
-  const metaRepoUrl = decodeMeta('https://github.com/KAravena/reportesfacsobook_template');
-
+  const metaRepoUrl = decodeMeta('?meta:book.repo-url');
   const metaRepoUrlNormalized = metaRepoUrl ? metaRepoUrl.replace(/\/+$/g, '') : '';
 
-
-
   const computeArchiveUrl = (hrefHint) => {
-
     const baseHref = (hrefHint || metaRepoUrlNormalized || metaRepoUrl || '').trim();
-
     if (!baseHref) return '';
 
-
-
     try {
-
       const url = new URL(baseHref, window.location.href);
-
       const pathnameRaw = url.pathname.replace(/\/+$/g, '');
-
       const normalizeBranch = (value) => {
-
         const branch = (value || '').trim();
-
         return branch ? branch : 'main';
-
       };
 
-
-
       if (url.hostname.includes('github.')) {
-
         const match = pathnameRaw.match(/^\/([^/]+)\/([^/]+)(?:\/(tree|blob)\/([^/]+).*)?$/);
-
         if (!match) return '';
 
-
-
         const owner = match[1];
-
         const repo = match[2].replace(/\.git$/i, '');
-
         const branchFromPath = match[4];
-
         const branch = normalizeBranch(branchFromPath || url.searchParams.get('branch'));
 
-
-
         return `${url.origin}/${owner}/${repo}/archive/refs/heads/${branch}.zip`;
-
       }
-
-
 
       if (url.hostname.includes('gitlab.')) {
-
         const match = pathnameRaw.match(/^\/(.+?)(?:\/-\/tree\/([^/]+).*)?$/);
-
         if (!match) return '';
-
-
 
         const projectPath = match[1].replace(/\/+$/g, '');
-
         const repoName = projectPath.split('/').pop();
-
         const branchFromPath = match[2];
-
         const branch = normalizeBranch(branchFromPath || url.searchParams.get('ref')); // GitLab often uses ref param
 
-
-
         return `${url.origin}/${projectPath}/-/archive/${branch}/${repoName}-${branch}.zip`;
-
       }
-
-
 
       if (url.hostname.includes('bitbucket.')) {
-
         const match = pathnameRaw.match(/^\/([^/]+)\/([^/]+)(?:\/src\/([^/]+).*)?$/);
-
         if (!match) return '';
 
-
-
         const owner = match[1];
-
         const repo = match[2].replace(/\.git$/i, '');
-
         const branchFromPath = match[3];
-
         const branch = normalizeBranch(branchFromPath || url.searchParams.get('at'));
 
-
-
         return `${url.origin}/${owner}/${repo}/get/${branch}.zip`;
-
       }
-
-
 
       const branch = normalizeBranch(url.searchParams.get('branch'));
-
       return `${baseHref.replace(/\/+$/g, '')}/archive/refs/heads/${branch}.zip`;
-
     } catch (error) {
-
       return '';
-
     }
-
   };
 
-
-
   const ensureDownloadButton = (fromObserver = false) => {
-
     const tools = document.querySelector('.sidebar-title .sidebar-tools-main');
-
     if (!tools) {
-
       if (!fromObserver) {
-
         window.setTimeout(() => ensureDownloadButton(false), 100);
-
       }
-
       return;
-
     }
-
-
 
     let download = tools.querySelector('[data-template-download]');
-
     if (!download) {
-
       download = document.createElement('a');
-
       download.className = 'quarto-navigation-tool px-1';
-
       download.title = 'Descargar ZIP';
-
       download.setAttribute('aria-label', 'Descargar plantilla (ZIP)');
-
       download.setAttribute('data-template-download', 'true');
-
       download.target = '_blank';
-
       download.rel = 'noopener';
-
       download.innerHTML = '<i class="bi bi-download"></i>';
-
     }
-
-
 
     const links = Array.from(tools.querySelectorAll('a.quarto-navigation-tool'));
-
     let repoLink = null;
 
-
-
     if (metaRepoUrlNormalized) {
-
       repoLink = links.find((anchor) => {
-
         if (anchor === download) return false;
-
         const href = anchor.href ? anchor.href.replace(/\/+$/g, '') : '';
-
         return href === metaRepoUrlNormalized;
-
       });
-
     }
 
-
-
     if (!repoLink) {
-
       repoLink = links.find((anchor) => anchor !== download && anchor.querySelector('.bi-github'));
-
     }
-
-
 
     if (!repoLink) {
-
       repoLink = links.find((anchor) => {
-
         if (anchor === download) return false;
-
         const href = anchor.href || '';
-
         return /github\.|gitlab\.|bitbucket\./i.test(href);
-
       });
-
     }
-
-
 
     const archiveUrl = computeArchiveUrl(repoLink ? repoLink.href : undefined);
 
-
-
     if (!archiveUrl) {
-
       if (download.parentNode) {
-
         download.parentNode.removeChild(download);
-
       }
-
       return;
-
     }
-
-
 
     download.href = archiveUrl;
-
     download.title = 'Descargar plantilla (ZIP)';
-
     download.setAttribute('aria-label', 'Descargar plantilla (ZIP)');
-
     const codeToggle = links.find((anchor) => anchor.classList.contains('global-code-toggle'));
 
-
-
     if (repoLink) {
-
       repoLink.insertAdjacentElement('afterend', download);
-
     } else if (codeToggle) {
-
       codeToggle.insertAdjacentElement('beforebegin', download);
-
     } else {
-
       tools.insertBefore(download, tools.firstChild);
-
     }
-
   };
-
-
 
   ensureDownloadButton();
 
-
-
   const observer = new MutationObserver((mutations) => {
-
     const shouldUpdate = mutations.some((mutation) => {
-
       if (mutation.type !== 'childList') {
-
         return false;
-
       }
-
       return Array.from(mutation.addedNodes).some((node) => {
-
         if (!(node instanceof HTMLElement)) {
-
           return false;
-
         }
-
         return (
-
           node.classList.contains('global-code-toggle') ||
-
           (node.querySelector && node.querySelector('.global-code-toggle'))
-
         );
-
       });
-
     });
-
-
 
     if (shouldUpdate) {
-
       ensureDownloadButton(true);
-
     }
-
   });
 
-
-
   observer.observe(document.body, { childList: true, subtree: true });
-
 });
-
 </script>
-
 <script>
-
 (function () {
-
   var isReferences = /(?:^|\/)references\.html(?:#|$)/i.test(window.location.pathname);
 
-
-
   // Base relativa que Quarto publica (para apéndices/…)
-
   var offsetMeta = document.querySelector('meta[name="quarto:offset"]');
-
   var base = (offsetMeta && offsetMeta.content) ? offsetMeta.content : "";
 
-
-
   // 1) En capítulos: reescribe enlaces de cita -> references.html#ref-*
-
   if (!isReferences) {
-
     var cites = document.querySelectorAll('a[role="doc-biblioref"][href^="#ref-"]');
-
     cites.forEach(function (a) {
-
       var hash = a.getAttribute('href'); // "#ref-xxx"
-
       // Conserva tooltips. Añade marca para mostrar "volver" luego.
-
       a.setAttribute('href', base + 'references.html' + hash);
-
       a.setAttribute('data-citefix', 'from-chapter');
-
     });
 
-
-
     // Oculta bibliografía local si citeproc la insertó
-
     var localRefsBlocks = document.querySelectorAll('section.footnotes, div#refs, div.references, section#references');
-
     localRefsBlocks.forEach(function (el) { el.style.display = 'none'; });
-
   }
-
-
 
   // 2) En references.html: añade botón "Volver" si se llega desde otra página
-
   if (isReferences) {
-
     var cameFromOutside = document.referrer && !/\/references\.html(?:#|$)/i.test(new URL(document.referrer).pathname);
-
     if (cameFromOutside && window.history && window.history.length > 1) {
-
       var btn = document.createElement('button');
-
       btn.type = 'button';
-
       btn.textContent = '← Volver';
-
       btn.setAttribute('aria-label', 'Volver a la página anterior');
-
       btn.style.position = 'fixed';
-
       btn.style.right = '1rem';
-
       btn.style.bottom = '1rem';
-
       btn.style.zIndex = '9999';
-
       btn.style.padding = '.6rem .9rem';
-
       btn.style.borderRadius = '10px';
-
       btn.style.border = '1px solid rgba(0,0,0,.15)';
-
       btn.style.background = 'var(--bs-body-bg, #fff)';
-
       btn.style.color = 'var(--bs-body-color, #111)';
-
       btn.style.boxShadow = '0 6px 16px rgba(0,0,0,.12)';
-
       btn.onclick = function () { history.back(); };
-
       document.body.appendChild(btn);
-
     }
-
-
 
     // Si llegamos con hash (#ref-xxx), desplaza con un pequeño retardo
-
     // para asegurar que el layout esté listo.
-
     if (location.hash && /^#ref-/.test(location.hash)) {
-
       setTimeout(function () {
-
         try {
-
           var target = document.getElementById(location.hash.substring(1));
-
           if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
-
         } catch (e) {}
-
       }, 50);
-
     }
-
   }
-
 })();
-
 </script>
 
-
-
 <style>
-
 /* Evita que el ancla de referencias quede “tapada” por el encabezado */
-
 .csl-entry[id^="ref-"],
-
 [id^="ref-"] { scroll-margin-top: 90px; }
 
-
-
 /* Ajuste suave para tooltips / focos de enlaces */
-
 a[role="doc-biblioref"]:focus-visible {
-
   outline: 2px dashed var(--facso-2, #84A7D8);
-
   outline-offset: 2px;
-
 }
 
-
-
 /* Opcional: separadores más legibles en la lista de referencias */
-
 #refs .csl-entry { padding: .25rem 0; border-bottom: 1px dashed rgba(0,0,0,.06); }
-
 #refs .csl-entry:last-child { border-bottom: none; }
-
 </style>
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const parseNumberParts = (value) =>
@@ -1406,16 +1610,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     function toggleCodeHandler(show) {
       return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
           if (show) {
             details.open = true;
           } else {
             details.removeAttribute("open");
           }
         }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
         const fromCls = show ? "hidden" : "unhidden";
         const toCls = show ? "unhidden" : "hidden";
         for (let i=0; i<cellCodeDivs.length; i++) {
@@ -1769,50 +1973,265 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./00-prefacio.html" class="pagination-link" aria-label="Prefacio">
-        <span class="nav-page-text">Prefacio</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> ""</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> false</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">numbered:</span><span class="co"> false</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    title-block-style: none</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: false</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf:</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    title-block-style: none</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>\small\textbf{Palabras clave:} Sociologia, educacion, Chile</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>\normalsize</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>nav<span class="pp">#TOC</span> { <span class="kw">display</span><span class="ch">:</span> <span class="dv">none</span> <span class="at">!important</span><span class="op">;</span> }</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>div<span class="ex">[</span><span class="ss">data-when-format</span><span class="op">=</span><span class="st">"pdf"</span><span class="ex">]</span> { <span class="kw">display</span><span class="ch">:</span> <span class="dv">none</span> <span class="at">!important</span><span class="op">;</span> }</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">style</span><span class="dt">&gt;</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"keywords-line"</span><span class="dt">&gt;&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Palabras clave:<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span> sociología, educación, Chile<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu"># Abstract {.unnumbered}</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Resumen en español (200-300). Expón propósito, método, resultados clave y conclusiones.</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>Puede incluir citas como @xie2017bookdown y se actualizarán automáticamente.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Análisis factorial del PVQ-21 de Schwartz en EDUMERCO Adultos"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Informe"</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: "Javiera Álvarez Cárdenas"</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliation: "Departamento de Sociología, Universidad de Chile"</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 3</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf:</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: false</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GPArotation)</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="fu"># Presentación y Objetivos</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>Este informe presenta el análisis factorial de la escala de valores de Schwartz (PVQ-21) utilizando los datos del estudio EDUMERCO Adultos.</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modelo de valores de Schwartz</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>Schwartz plantea que las personas comparten diez valores básicos, organizados en una estructura circular:</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Los valores **vecinos** son compatibles entre sí.</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Los valores **opuestos** se encuentran en mayor tensión.</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Los diez valores se agrupan en **cuatro dimensiones** de orden superior: apertura al cambio, autoensalzamiento, conservación y autotrascendencia.</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Valor <span class="pp">|</span> Ítems del PVQ-21 <span class="pp">|</span> Dimensión <span class="pp">|</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|:---|:---|:---|</span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Estimulación <span class="pp">|</span> 06, 15 <span class="pp">|</span> Apertura al cambio <span class="pp">|</span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Hedonismo <span class="pp">|</span> 10, 21 <span class="pp">|</span> Apertura al cambio / autoensalzamiento <span class="pp">|</span></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Logro <span class="pp">|</span> 04, 13 <span class="pp">|</span> Autoensalzamiento <span class="pp">|</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Poder <span class="pp">|</span> 02, 17 <span class="pp">|</span> Autoensalzamiento <span class="pp">|</span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Seguridad <span class="pp">|</span> 05, 14 <span class="pp">|</span> Conservación <span class="pp">|</span></span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Conformidad <span class="pp">|</span> 07, 16 <span class="pp">|</span> Conservación <span class="pp">|</span></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Tradición <span class="pp">|</span> 09, 20 <span class="pp">|</span> Conservación <span class="pp">|</span></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Benevolencia <span class="pp">|</span> 12, 18 <span class="pp">|</span> Autotrascendencia <span class="pp">|</span></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Universalismo <span class="pp">|</span> 03, 08, 19 <span class="pp">|</span> Autotrascendencia <span class="pp">|</span></span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Autodirección <span class="pp">|</span> 01, 11 <span class="pp">|</span> Apertura al cambio <span class="pp">|</span></span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>El PVQ-21 aplicado en EDUMERCO es una versión corta, con dos ítems por valor y tres para universalismo <span class="co">[</span><span class="ot">@xie2017bookdown</span><span class="co">]</span>.</span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="fu"># Preparación de los datos</span></span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Carga de los datos</span></span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>Se cargan los datos de EDUMERCO Adultos y se seleccionan los 21 ítems del PVQ-21 (<span class="in">`values_01`</span> a <span class="in">`values_21`</span>).</span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: carga-datos</span></span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"input/data/completas-280125.RData"</span>)   <span class="co"># carga el objeto `data`</span></span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>items <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"values_"</span>, <span class="fu">sprintf</span>(<span class="st">"%02d"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>))</span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Recodificación de datos perdidos</span></span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>Las respuestas 7 ("No sé") y 8 ("Preferiría no responder") se recodifican como <span class="in">`NA`</span>.</span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: recodificacion</span></span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a>vals <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(items)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.numeric),</span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>         <span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">na_if</span>(<span class="fu">na_if</span>(.x, <span class="dv">7</span>), <span class="dv">8</span>)))</span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a><span class="fu">## Selección de casos</span></span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a>Se conservan las personas que respondieron al menos 15 de los 21 ítems.</span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: filtro-casos</span></span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a>n_total  <span class="ot">&lt;-</span> <span class="fu">nrow</span>(vals)</span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a>vals     <span class="ot">&lt;-</span> vals <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">rowSums</span>(<span class="sc">!</span><span class="fu">is.na</span>(.)) <span class="sc">&gt;=</span> <span class="dv">15</span>)</span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a>n_usados <span class="ot">&lt;-</span> <span class="fu">nrow</span>(vals)</span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a>Se utilizan <span class="in">`r format(n_usados, big.mark = ".")`</span> de <span class="in">`r format(n_total, big.mark = ".")`</span> personas (<span class="in">`r format(round(n_usados / n_total * 100, 1), decimal.mark = ",")`</span>%).</span>
+<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a><span class="fu">## Definición de los valores</span></span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>Cada valor de Schwartz se define como el conjunto de ítems que lo miden, en el orden del círculo teórico.</span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: definicion-valores</span></span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>valores10 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>  <span class="at">estimulacion  =</span> <span class="fu">c</span>(<span class="st">"06"</span>, <span class="st">"15"</span>), <span class="at">hedonismo     =</span> <span class="fu">c</span>(<span class="st">"10"</span>, <span class="st">"21"</span>),</span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a>  <span class="at">logro         =</span> <span class="fu">c</span>(<span class="st">"04"</span>, <span class="st">"13"</span>), <span class="at">poder         =</span> <span class="fu">c</span>(<span class="st">"02"</span>, <span class="st">"17"</span>),</span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a>  <span class="at">seguridad     =</span> <span class="fu">c</span>(<span class="st">"05"</span>, <span class="st">"14"</span>), <span class="at">conformidad   =</span> <span class="fu">c</span>(<span class="st">"07"</span>, <span class="st">"16"</span>),</span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a>  <span class="at">tradicion     =</span> <span class="fu">c</span>(<span class="st">"09"</span>, <span class="st">"20"</span>), <span class="at">benevolencia  =</span> <span class="fu">c</span>(<span class="st">"12"</span>, <span class="st">"18"</span>),</span>
+<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a>  <span class="at">universalismo =</span> <span class="fu">c</span>(<span class="st">"03"</span>, <span class="st">"08"</span>, <span class="st">"19"</span>), <span class="at">autodireccion =</span> <span class="fu">c</span>(<span class="st">"01"</span>, <span class="st">"11"</span>)</span>
+<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a>nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">estimulacion =</span> <span class="st">"Estimulación"</span>, <span class="at">hedonismo =</span> <span class="st">"Hedonismo"</span>,</span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a>             <span class="at">logro =</span> <span class="st">"Logro"</span>, <span class="at">poder =</span> <span class="st">"Poder"</span>, <span class="at">seguridad =</span> <span class="st">"Seguridad"</span>,</span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a>             <span class="at">conformidad =</span> <span class="st">"Conformidad"</span>, <span class="at">tradicion =</span> <span class="st">"Tradición"</span>,</span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a>             <span class="at">benevolencia =</span> <span class="st">"Benevolencia"</span>, <span class="at">universalismo =</span> <span class="st">"Universalismo"</span>,</span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a>             <span class="at">autodireccion =</span> <span class="st">"Autodirección"</span>)</span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a><span class="fu">## Versión centrada de las respuestas</span></span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a>Se construye además una versión centrada, restando a cada respuesta el promedio de la persona, para considerar la importancia relativa de los valores.</span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: centrado</span></span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a>vals_c <span class="ot">&lt;-</span> vals <span class="sc">-</span> <span class="fu">rowMeans</span>(vals, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a><span class="fu"># Estadísticos descriptivos</span></span>
+<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Por ítem</span></span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-descriptivos-item</span></span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Descriptivos por ítem (escala de 1 a 6)"</span></span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a>descriptivos <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">describe</span>(vals)</span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>descriptivos <span class="sc">%&gt;%</span></span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(n, mean, sd, min, max, skew, kurtosis) <span class="sc">%&gt;%</span></span>
+<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">round</span>(.x, <span class="dv">2</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
+<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"N"</span>, <span class="st">"Media"</span>, <span class="st">"DE"</span>, <span class="st">"Mín."</span>, <span class="st">"Máx."</span>, <span class="st">"Asimetría"</span>, <span class="st">"Curtosis"</span>),</span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a>    <span class="at">format.args =</span> <span class="fu">list</span>(<span class="at">big.mark =</span> <span class="st">"."</span>, <span class="at">decimal.mark =</span> <span class="st">","</span>)</span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a><span class="fu">## Por valor</span></span>
+<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-descriptivos-valor</span></span>
+<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Puntaje promedio por valor (escala de 1 a 6)"</span></span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a>tabla_valores <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(</span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(valores10),</span>
+<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(v) {</span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a>    vars <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"values_"</span>, valores10[[v]])</span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
+<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a>      <span class="at">valor =</span> nombres[v],</span>
+<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a>      <span class="at">puntaje =</span> <span class="fu">rowMeans</span>(vals[, vars], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a>resumen_valores <span class="ot">&lt;-</span> tabla_valores <span class="sc">%&gt;%</span></span>
+<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(valor) <span class="sc">%&gt;%</span></span>
+<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a>    <span class="at">n        =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(puntaje)),</span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a>    <span class="at">promedio =</span> <span class="fu">mean</span>(puntaje, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a>    <span class="at">de       =</span> <span class="fu">sd</span>(puntaje, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups  =</span> <span class="st">"drop"</span></span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(promedio))</span>
+<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a>resumen_valores <span class="sc">%&gt;%</span></span>
+<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(promedio, de), <span class="sc">~</span> <span class="fu">round</span>(.x, <span class="dv">2</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
+<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Valor"</span>, <span class="st">"N"</span>, <span class="st">"Media"</span>, <span class="st">"DE"</span>),</span>
+<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a>    <span class="at">align =</span> <span class="st">"lrrr"</span>,</span>
+<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a>    <span class="at">format.args =</span> <span class="fu">list</span>(<span class="at">big.mark =</span> <span class="st">"."</span>, <span class="at">decimal.mark =</span> <span class="st">","</span>)</span>
+<span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a><span class="fu"># Relación entre los valores</span></span>
+<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a>Para esto se usan los puntajes centrados (cada respuesta menos el promedio de la persona), que es la corrección que recomienda Schwartz. Al centrar aparecen correlaciones negativas por construcción, así que es una exploración y no una prueba de la estructura circular.</span>
+<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-correlaciones</span></span>
+<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Correlaciones entre valores (puntajes centrados)"</span></span>
+<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 7</span></span>
+<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 7</span></span>
+<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">map_dfc</span>(valores10,</span>
+<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a>                  <span class="sc">~</span> <span class="fu">rowMeans</span>(vals_c[, <span class="fu">paste0</span>(<span class="st">"values_"</span>, .x)], <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">cor</span>(scores, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span>
+<span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a>orden <span class="ot">&lt;-</span> <span class="fu">names</span>(valores10)</span>
+<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(<span class="fu">as.table</span>(R)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Var1 =</span> <span class="fu">factor</span>(nombres[<span class="fu">as.character</span>(Var1)], <span class="at">levels =</span> nombres[orden]),</span>
+<span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a>         <span class="at">Var2 =</span> <span class="fu">factor</span>(nombres[<span class="fu">as.character</span>(Var2)], <span class="at">levels =</span> <span class="fu">rev</span>(nombres[orden]))) <span class="sc">%&gt;%</span></span>
+<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Var1, Var2, <span class="at">fill =</span> Freq)) <span class="sc">+</span></span>
+<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">format</span>(<span class="fu">round</span>(Freq, <span class="dv">2</span>), <span class="at">decimal.mark =</span> <span class="st">","</span>)), <span class="at">size =</span> <span class="fl">2.8</span>) <span class="sc">+</span></span>
+<span id="cb12-216"><a href="#cb12-216" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(<span class="at">low =</span> <span class="st">"firebrick"</span>, <span class="at">mid =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"steelblue"</span>,</span>
+<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb12-218"><a href="#cb12-218" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">fill =</span> <span class="st">"r"</span>) <span class="sc">+</span></span>
+<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
+<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb12-221"><a href="#cb12-221" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb12-222"><a href="#cb12-222" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a>Varios valores vecinos correlacionan positivamente (poder–logro, 0,34; benevolencia–universalismo, 0,27; estimulación–hedonismo, 0,26; conformidad–tradición, 0,19) y algunos opuestos correlacionan negativamente (poder–universalismo, −0,46; logro–universalismo, −0,41; estimulación–seguridad, −0,35). Autodirección tiene correlaciones cercanas a cero con casi todos los valores, y seguridad se asocia poco con conformidad y tradición.</span>
+<span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-226"><a href="#cb12-226" aria-hidden="true" tabindex="-1"></a><span class="fu"># Análisis factorial exploratorio</span></span>
+<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-228"><a href="#cb12-228" aria-hidden="true" tabindex="-1"></a><span class="fu">## Adecuación de los datos (KMO y Bartlett)</span></span>
+<span id="cb12-231"><a href="#cb12-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-232"><a href="#cb12-232" aria-hidden="true" tabindex="-1"></a>cor_poly <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">polychoric</span>(vals)</span>
+<span id="cb12-233"><a href="#cb12-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-234"><a href="#cb12-234" aria-hidden="true" tabindex="-1"></a>kmo   <span class="ot">&lt;-</span> <span class="fu">KMO</span>(cor_poly<span class="sc">$</span>rho)</span>
+<span id="cb12-235"><a href="#cb12-235" aria-hidden="true" tabindex="-1"></a>bart  <span class="ot">&lt;-</span> <span class="fu">cortest.bartlett</span>(cor_poly<span class="sc">$</span>rho, <span class="at">n =</span> <span class="fu">nrow</span>(vals))</span>
+<span id="cb12-236"><a href="#cb12-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-237"><a href="#cb12-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a>El índice KMO global fue de <span class="in">`r format(round(kmo$MSA, 2), decimal.mark = ",")`</span>, y la prueba de Bartlett fue significativa (χ²(<span class="in">`r bart$df`</span>) = <span class="in">`r format(round(bart$chisq, 1), big.mark = ".", decimal.mark = ",")`</span>, p &lt; 0,001), por lo que los datos son adecuados para un análisis factorial.</span>
+<span id="cb12-239"><a href="#cb12-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a><span class="fu">## Número de factores</span></span>
+<span id="cb12-243"><a href="#cb12-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: hide</span></span>
+<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a>pa <span class="ot">&lt;-</span> <span class="fu">fa.parallel</span>(cor_poly<span class="sc">$</span>rho, <span class="at">n.obs =</span> <span class="fu">nrow</span>(vals), <span class="at">fa =</span> <span class="st">"fa"</span>, <span class="at">fm =</span> <span class="st">"minres"</span>,</span>
+<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a>                  <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-248"><a href="#cb12-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-251"><a href="#cb12-251" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-252"><a href="#cb12-252" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-analisis-paralelo</span></span>
+<span id="cb12-253"><a href="#cb12-253" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Análisis paralelo"</span></span>
+<span id="cb12-254"><a href="#cb12-254" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 4.5</span></span>
+<span id="cb12-255"><a href="#cb12-255" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">factor =</span> <span class="fu">seq_along</span>(pa<span class="sc">$</span>fa.values),</span>
+<span id="cb12-256"><a href="#cb12-256" aria-hidden="true" tabindex="-1"></a>       <span class="st">`</span><span class="at">Datos observados</span><span class="st">`</span> <span class="ot">=</span> pa<span class="sc">$</span>fa.values,</span>
+<span id="cb12-257"><a href="#cb12-257" aria-hidden="true" tabindex="-1"></a>       <span class="st">`</span><span class="at">Datos simulados (azar)</span><span class="st">`</span> <span class="ot">=</span> pa<span class="sc">$</span>fa.sim) <span class="sc">%&gt;%</span></span>
+<span id="cb12-258"><a href="#cb12-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>factor, <span class="at">names_to =</span> <span class="st">"serie"</span>, <span class="at">values_to =</span> <span class="st">"autovalor"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-259"><a href="#cb12-259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(factor, autovalor, <span class="at">color =</span> serie, <span class="at">linetype =</span> serie)) <span class="sc">+</span></span>
+<span id="cb12-260"><a href="#cb12-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb12-261"><a href="#cb12-261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb12-262"><a href="#cb12-262" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"grey70"</span>) <span class="sc">+</span></span>
+<span id="cb12-263"><a href="#cb12-263" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Datos observados"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>,</span>
+<span id="cb12-264"><a href="#cb12-264" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Datos simulados (azar)"</span> <span class="ot">=</span> <span class="st">"firebrick"</span>)) <span class="sc">+</span></span>
+<span id="cb12-265"><a href="#cb12-265" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Datos observados"</span> <span class="ot">=</span> <span class="st">"solid"</span>,</span>
+<span id="cb12-266"><a href="#cb12-266" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"Datos simulados (azar)"</span> <span class="ot">=</span> <span class="st">"dashed"</span>)) <span class="sc">+</span></span>
+<span id="cb12-267"><a href="#cb12-267" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Número de factor"</span>, <span class="at">y =</span> <span class="st">"Autovalor"</span>, <span class="at">color =</span> <span class="cn">NULL</span>, <span class="at">linetype =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb12-268"><a href="#cb12-268" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb12-269"><a href="#cb12-269" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb12-270"><a href="#cb12-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-271"><a href="#cb12-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-272"><a href="#cb12-272" aria-hidden="true" tabindex="-1"></a>La línea azul son los datos y la roja punteada lo esperable por azar, se consideran los factores donde la azul queda por encima.</span>
+<span id="cb12-273"><a href="#cb12-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-274"><a href="#cb12-274" aria-hidden="true" tabindex="-1"></a>El análisis paralelo sugiere <span class="in">`r pa$nfact`</span> factores.</span>
+<span id="cb12-275"><a href="#cb12-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-276"><a href="#cb12-276" aria-hidden="true" tabindex="-1"></a><span class="fu"># Referencias</span></span>
+</code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="index_files/libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -1,29 +1,252 @@
 ﻿---
-title: ""
-number-sections: false
-numbered: false
+title: "Análisis factorial del PVQ-21 de Schwartz en EDUMERCO Adultos"
+subtitle: "Informe"
+author:
+  - name: "Javiera Álvarez Cárdenas"
+    affiliation: "Departamento de Sociología, Universidad de Chile"
 format:
   html:
-    title-block-style: none
-    toc: false
+    toc: true
+    toc-depth: 3
+    toc-location: right
   pdf:
-    title-block-style: none
+    toc: false
 ---
 
-::: {.content-visible when-format="pdf"}
-\small\textbf{Palabras clave:} Sociologia, educacion, Chile
-\normalsize
-:::
+```{r}
+#| label: setup
+#| include: false
 
-::: {.content-visible when-format="html"}
-<style>
-nav#TOC { display: none !important; }
-div[data-when-format="pdf"] { display: none !important; }
-</style>
-<span class="keywords-line"><strong>Palabras clave:</strong> sociología, educación, Chile</span>
-:::
+library(tidyverse)
+library(psych)
+library(GPArotation)
+library(kableExtra)
 
-# Abstract {.unnumbered}
+options(scipen = 999)
+```
 
-Resumen en español (200-300). Expón propósito, método, resultados clave y conclusiones.
-Puede incluir citas como @xie2017bookdown y se actualizarán automáticamente.
+# Presentación y Objetivos
+
+Este informe presenta el análisis factorial de la escala de valores de Schwartz (PVQ-21) utilizando los datos del estudio EDUMERCO Adultos.
+
+## Modelo de valores de Schwartz
+
+Schwartz plantea que las personas comparten diez valores básicos, organizados en una estructura circular:
+
+- Los valores **vecinos** son compatibles entre sí.
+- Los valores **opuestos** se encuentran en mayor tensión.
+- Los diez valores se agrupan en **cuatro dimensiones** de orden superior: apertura al cambio, autoensalzamiento, conservación y autotrascendencia.
+
+| Valor | Ítems del PVQ-21 | Dimensión |
+|:---|:---|:---|
+| Estimulación | 06, 15 | Apertura al cambio |
+| Hedonismo | 10, 21 | Apertura al cambio / autoensalzamiento |
+| Logro | 04, 13 | Autoensalzamiento |
+| Poder | 02, 17 | Autoensalzamiento |
+| Seguridad | 05, 14 | Conservación |
+| Conformidad | 07, 16 | Conservación |
+| Tradición | 09, 20 | Conservación |
+| Benevolencia | 12, 18 | Autotrascendencia |
+| Universalismo | 03, 08, 19 | Autotrascendencia |
+| Autodirección | 01, 11 | Apertura al cambio |
+
+El PVQ-21 aplicado en EDUMERCO es una versión corta, con dos ítems por valor y tres para universalismo [@xie2017bookdown].
+
+# Preparación de los datos
+
+## Carga de los datos
+
+Se cargan los datos de EDUMERCO Adultos y se seleccionan los 21 ítems del PVQ-21 (`values_01` a `values_21`).
+
+```{r}
+#| label: carga-datos
+load("input/data/completas-280125.RData")   # carga el objeto `data`
+
+items <- paste0("values_", sprintf("%02d", 1:21))
+```
+
+## Recodificación de datos perdidos
+
+Las respuestas 7 ("No sé") y 8 ("Preferiría no responder") se recodifican como `NA`.
+
+```{r}
+#| label: recodificacion
+vals <- data %>%
+  select(all_of(items)) %>%
+  mutate(across(everything(), as.numeric),
+         across(everything(), ~ na_if(na_if(.x, 7), 8)))
+```
+
+## Selección de casos
+
+Se conservan las personas que respondieron al menos 15 de los 21 ítems.
+
+```{r}
+#| label: filtro-casos
+n_total  <- nrow(vals)
+vals     <- vals %>% filter(rowSums(!is.na(.)) >= 15)
+n_usados <- nrow(vals)
+```
+
+Se utilizan `r format(n_usados, big.mark = ".")` de `r format(n_total, big.mark = ".")` personas (`r format(round(n_usados / n_total * 100, 1), decimal.mark = ",")`%).
+
+## Definición de los valores
+
+Cada valor de Schwartz se define como el conjunto de ítems que lo miden, en el orden del círculo teórico.
+
+```{r}
+#| label: definicion-valores
+valores10 <- list(
+  estimulacion  = c("06", "15"), hedonismo     = c("10", "21"),
+  logro         = c("04", "13"), poder         = c("02", "17"),
+  seguridad     = c("05", "14"), conformidad   = c("07", "16"),
+  tradicion     = c("09", "20"), benevolencia  = c("12", "18"),
+  universalismo = c("03", "08", "19"), autodireccion = c("01", "11")
+)
+
+nombres <- c(estimulacion = "Estimulación", hedonismo = "Hedonismo",
+             logro = "Logro", poder = "Poder", seguridad = "Seguridad",
+             conformidad = "Conformidad", tradicion = "Tradición",
+             benevolencia = "Benevolencia", universalismo = "Universalismo",
+             autodireccion = "Autodirección")
+```
+
+## Versión centrada de las respuestas
+
+Se construye además una versión centrada, restando a cada respuesta el promedio de la persona, para considerar la importancia relativa de los valores.
+
+```{r}
+#| label: centrado
+vals_c <- vals - rowMeans(vals, na.rm = TRUE)
+```
+
+# Estadísticos descriptivos
+
+## Por ítem
+```{r}
+#| label: tbl-descriptivos-item
+#| tbl-cap: "Descriptivos por ítem (escala de 1 a 6)"
+descriptivos <- psych::describe(vals)
+
+descriptivos %>%
+  select(n, mean, sd, min, max, skew, kurtosis) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 2))) %>%
+  kbl(
+    col.names = c("N", "Media", "DE", "Mín.", "Máx.", "Asimetría", "Curtosis"),
+    format.args = list(big.mark = ".", decimal.mark = ",")
+  ) %>%
+  kable_styling(full_width = FALSE)
+```
+
+## Por valor
+```{r}
+#| label: tbl-descriptivos-valor
+#| tbl-cap: "Puntaje promedio por valor (escala de 1 a 6)"
+tabla_valores <- purrr::map_dfr(
+  names(valores10),
+  function(v) {
+    vars <- paste0("values_", valores10[[v]])
+
+    tibble(
+      valor = nombres[v],
+      puntaje = rowMeans(vals[, vars], na.rm = TRUE)
+    )
+  }
+)
+
+resumen_valores <- tabla_valores %>%
+  group_by(valor) %>%
+  summarise(
+    n        = sum(!is.na(puntaje)),
+    promedio = mean(puntaje, na.rm = TRUE),
+    de       = sd(puntaje, na.rm = TRUE),
+    .groups  = "drop"
+  ) %>%
+  arrange(desc(promedio))
+
+resumen_valores %>%
+  mutate(across(c(promedio, de), ~ round(.x, 2))) %>%
+  kbl(
+    col.names = c("Valor", "N", "Media", "DE"),
+    align = "lrrr",
+    format.args = list(big.mark = ".", decimal.mark = ",")
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+```
+
+# Relación entre los valores
+
+Para esto se usan los puntajes centrados (cada respuesta menos el promedio de la persona), que es la corrección que recomienda Schwartz. Al centrar aparecen correlaciones negativas por construcción, así que es una exploración y no una prueba de la estructura circular.
+
+```{r}
+#| label: fig-correlaciones
+#| fig-cap: "Correlaciones entre valores (puntajes centrados)"
+#| fig-width: 7
+#| fig-height: 7
+scores <- map_dfc(valores10,
+                  ~ rowMeans(vals_c[, paste0("values_", .x)], na.rm = TRUE))
+
+R <- cor(scores, use = "pairwise.complete.obs")
+orden <- names(valores10)
+
+as.data.frame(as.table(R)) %>%
+  mutate(Var1 = factor(nombres[as.character(Var1)], levels = nombres[orden]),
+         Var2 = factor(nombres[as.character(Var2)], levels = rev(nombres[orden]))) %>%
+  ggplot(aes(Var1, Var2, fill = Freq)) +
+  geom_tile() +
+  geom_text(aes(label = format(round(Freq, 2), decimal.mark = ",")), size = 2.8) +
+  scale_fill_gradient2(low = "firebrick", mid = "white", high = "steelblue",
+                       limits = c(-1, 1)) +
+  labs(x = NULL, y = NULL, fill = "r") +
+  coord_fixed() +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+Varios valores vecinos correlacionan positivamente (poder–logro, 0,34; benevolencia–universalismo, 0,27; estimulación–hedonismo, 0,26; conformidad–tradición, 0,19) y algunos opuestos correlacionan negativamente (poder–universalismo, −0,46; logro–universalismo, −0,41; estimulación–seguridad, −0,35). Autodirección tiene correlaciones cercanas a cero con casi todos los valores, y seguridad se asocia poco con conformidad y tradición.
+
+# Análisis factorial exploratorio
+
+## Adecuación de los datos (KMO y Bartlett)
+```{r}
+cor_poly <- psych::polychoric(vals)
+
+kmo   <- KMO(cor_poly$rho)
+bart  <- cortest.bartlett(cor_poly$rho, n = nrow(vals))
+```
+
+El índice KMO global fue de `r format(round(kmo$MSA, 2), decimal.mark = ",")`, y la prueba de Bartlett fue significativa (χ²(`r bart$df`) = `r format(round(bart$chisq, 1), big.mark = ".", decimal.mark = ",")`, p < 0,001), por lo que los datos son adecuados para un análisis factorial.
+
+## Número de factores
+```{r}
+#| results: hide
+pa <- fa.parallel(cor_poly$rho, n.obs = nrow(vals), fa = "fa", fm = "minres",
+                  plot = FALSE)
+```
+
+```{r}
+#| label: fig-analisis-paralelo
+#| fig-cap: "Análisis paralelo"
+#| fig-height: 4.5
+tibble(factor = seq_along(pa$fa.values),
+       `Datos observados` = pa$fa.values,
+       `Datos simulados (azar)` = pa$fa.sim) %>%
+  pivot_longer(-factor, names_to = "serie", values_to = "autovalor") %>%
+  ggplot(aes(factor, autovalor, color = serie, linetype = serie)) +
+  geom_line() +
+  geom_point() +
+  geom_hline(yintercept = 0, color = "grey70") +
+  scale_color_manual(values = c("Datos observados" = "steelblue",
+                                "Datos simulados (azar)" = "firebrick")) +
+  scale_linetype_manual(values = c("Datos observados" = "solid",
+                                   "Datos simulados (azar)" = "dashed")) +
+  labs(x = "Número de factor", y = "Autovalor", color = NULL, linetype = NULL) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+La línea azul son los datos y la roja punteada lo esperable por azar, se consideran los factores donde la azul queda por encima.
+
+El análisis paralelo sugiere `r pa$nfact` factores.
+
+# Referencias

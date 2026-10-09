@@ -16,7 +16,6 @@ format:
 ```{r}
 #| label: setup
 #| include: false
-
 library(tidyverse)
 library(psych)
 library(GPArotation)
@@ -31,7 +30,7 @@ Este informe presenta el análisis factorial de la escala de valores de Schwartz
 
 ## Modelo de valores de Schwartz
 
-Schwartz plantea que las personas comparten diez valores básicos, organizados en una estructura circular:
+@schwartz_overview_2012 plantea que las personas comparten diez valores básicos, organizados en una estructura circular:
 
 - Los valores **vecinos** son compatibles entre sí.
 - Los valores **opuestos** se encuentran en mayor tensión.
@@ -50,7 +49,7 @@ Schwartz plantea que las personas comparten diez valores básicos, organizados e
 | Universalismo | 03, 08, 19 | Autotrascendencia |
 | Autodirección | 01, 11 | Apertura al cambio |
 
-El PVQ-21 aplicado en EDUMERCO es una versión corta, con dos ítems por valor y tres para universalismo [@xie2017bookdown].
+El PVQ-21 aplicado en EDUMERCO es una versión corta, con dos ítems por valor y tres para universalismo. Cada ítem se responde en una escala de 1 a 6, donde 1 = "Muy poco parecido a mí" y 6 = "Muy parecido a mí".
 
 # Preparación de los datos
 
@@ -148,7 +147,7 @@ tabla_valores <- purrr::map_dfr(
     vars <- paste0("values_", valores10[[v]])
 
     tibble(
-      valor = nombres[v],
+      valor   = nombres[v],
       puntaje = rowMeans(vals[, vars], na.rm = TRUE)
     )
   }
@@ -209,23 +208,32 @@ Varios valores vecinos correlacionan positivamente (poder–logro, 0,34; benevol
 
 ## Adecuación de los datos (KMO y Bartlett)
 ```{r}
+#| label: policorica
 cor_poly <- psych::polychoric(vals)
 
-kmo   <- KMO(cor_poly$rho)
-bart  <- cortest.bartlett(cor_poly$rho, n = nrow(vals))
+kmo  <- KMO(cor_poly$rho)
+bart <- cortest.bartlett(cor_poly$rho, n = nrow(vals))
 ```
 
 El índice KMO global fue de `r format(round(kmo$MSA, 2), decimal.mark = ",")`, y la prueba de Bartlett fue significativa (χ²(`r bart$df`) = `r format(round(bart$chisq, 1), big.mark = ".", decimal.mark = ",")`, p < 0,001), por lo que los datos son adecuados para un análisis factorial.
 
 ## Número de factores
 ```{r}
+#| label: analisis-paralelo-calculo
 #| results: hide
-pa <- fa.parallel(cor_poly$rho, n.obs = nrow(vals), fa = "fa", fm = "minres",
-                  plot = FALSE)
+dir.create("output", showWarnings = FALSE)
+
+if (file.exists("output/pa.rds")) {
+  pa <- readRDS("output/pa.rds")
+} else {
+  pa <- fa.parallel(vals, fa = "fa", fm = "minres", cor = "poly",
+                    n.iter = 20, plot = FALSE)
+  saveRDS(pa, "output/pa.rds")
+}
 ```
 
 ```{r}
-#| label: fig-analisis-paralelo
+#| label: fig-paralelo
 #| fig-cap: "Análisis paralelo"
 #| fig-height: 4.5
 tibble(factor = seq_along(pa$fa.values),

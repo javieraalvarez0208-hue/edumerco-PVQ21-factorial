@@ -16,6 +16,7 @@ library(tidyverse)
 library(psych)
 library(GPArotation)
 library(kableExtra)
+library(smacof)
 
 options(scipen = 999, OutDec = ",")
 
@@ -29,26 +30,37 @@ Este informe presenta el análisis factorial de la escala de valores de Schwartz
 
 ## Modelo de valores de Schwartz
 
-@schwartz_overview_2012 plantea que las personas comparten diez valores básicos, organizados en una estructura circular:
+@schwartz_overview_2012 propone que existen diez valores básicos que se reconocen en distintas culturas, y que lo que distingue a las personas no es si los tienen, sino la importancia relativa que les asignan, es decir, su jerarquía de valores. Cada valor expresa una motivación distinta:
 
-- Los valores **vecinos** son compatibles entre sí.
-- Los valores **opuestos** se encuentran en mayor tensión.
-- Los diez valores se agrupan en **cuatro dimensiones** de orden superior: apertura al cambio, autoensalzamiento, conservación y autotrascendencia.
+| Valor | Qué busca | Ítems del PVQ-21 en EDUMERCO | Dimensión |
+|:-----------------|:-----------------|:-----------------|:-----------------|
+| Autodirección | Independencia de pensamiento y de acción: elegir, crear y explorar | 01, 11 | Apertura al cambio |
+| Estimulación | Entusiasmo, novedad y desafíos en la vida | 06, 15 | Apertura al cambio |
+| Hedonismo | Placer y gratificación personal | 10, 21 | Apertura al cambio / autoensalzamiento |
+| Logro | Éxito personal demostrando competencia según estándares sociales | 04, 13 | Autoensalzamiento |
+| Poder | Estatus, prestigio y control sobre personas y recursos | 02, 17 | Autoensalzamiento |
+| Seguridad | Seguridad, armonía y estabilidad de la sociedad, de las relaciones y de uno mismo | 05, 14 | Conservación |
+| Conformidad | Contener acciones que puedan dañar a otros o violar expectativas y normas sociales | 07, 16 | Conservación |
+| Tradición | Respeto y compromiso con las costumbres e ideas de la cultura o la religión | 09, 20 | Conservación |
+| Benevolencia | Preservar y mejorar el bienestar de las personas cercanas | 12, 18 | Autotrascendencia |
+| Universalismo | Comprensión, tolerancia y protección del bienestar de todas las personas y de la naturaleza | 03, 08, 19 | Autotrascendencia |
 
-| Valor         | Ítems del PVQ-21 | Dimensión                              |
-|:--------------|:-----------------|:---------------------------------------|
-| Estimulación  | 06, 15           | Apertura al cambio                     |
-| Hedonismo     | 10, 21           | Apertura al cambio / autoensalzamiento |
-| Logro         | 04, 13           | Autoensalzamiento                      |
-| Poder         | 02, 17           | Autoensalzamiento                      |
-| Seguridad     | 05, 14           | Conservación                           |
-| Conformidad   | 07, 16           | Conservación                           |
-| Tradición     | 09, 20           | Conservación                           |
-| Benevolencia  | 12, 18           | Autotrascendencia                      |
-| Universalismo | 03, 08, 19       | Autotrascendencia                      |
-| Autodirección | 01, 11           | Apertura al cambio                     |
 
-El PVQ-21 aplicado en EDUMERCO es una versión corta, con dos ítems por valor y tres para universalismo. Cada ítem se responde en una escala de 1 a 6, donde 1 = "Muy poco parecido a mí" y 6 = "Muy parecido a mí".
+-   Los valores vecinos son compatibles entre sí, porque persiguen motivaciones similares.
+-   Los valores opuestos se encuentran en mayor tensión, porque perseguir uno suele implicar alejarse del otro.
+
+Esta organización se resume en dos oposiciones que forman cuatro dimensiones de orden superior:
+
+-   **Apertura al cambio** (autodirección, estimulación, hedonismo) frente a **conservación** (seguridad, conformidad, tradición): independencia y disposición al cambio frente a orden, estabilidad y continuidad.
+-   **Autotrascendencia** (universalismo, benevolencia) frente a **autoensalzamiento** (poder, logro, hedonismo): preocupación por el bienestar de otros frente a la búsqueda del propio éxito y dominio.
+
+Hedonismo comparte rasgos de apertura al cambio y de autoensalzamiento, por lo que se ubica entre ambas dimensiones.
+
+Como la teoría se refiere a prioridades relativas y no a niveles absolutos de acuerdo, el análisis de la relación entre valores utiliza puntajes centrados en el promedio de cada persona.
+
+### El PVQ-21
+
+El PVQ (*Portrait Values Questionnaire*) describe brevemente a una persona y pide a quien responde que indique cuánto se parece a ella. La versión de 21 ítems aplicada en EDUMERCO mide cada valor con dos ítems (tres en el caso de universalismo). Cada ítem se responde en una escala de 1 a 6, donde 1 = "Muy poco parecido a mí" y 6 = "Muy parecido a mí".
 
 # Preparación de los datos
 
@@ -120,6 +132,11 @@ nombres <- c(estimulacion = "Estimulación", hedonismo = "Hedonismo",
 puntajes_valores <- function(df) {
   map_dfc(valores10, \(it) rowMeans(df[paste0("values_", it)], na.rm = TRUE))
 }
+# Tabla ítem -> valor
+item_valor <- imap_dfr(
+  valores10,
+  \(it, v) tibble(item = paste0("values_", it), valor = nombres[[v]])
+)
 ```
 
 ## Versión centrada de las respuestas
@@ -226,7 +243,7 @@ La teoría de @schwartz_overview_2012 propone una estructura de diez valores y c
 
 Por esta razón se utiliza un análisis factorial exploratorio (AFE), que permite examinar cómo se agrupan los ítems a partir de sus correlaciones, sin imponer de antemano qué ítem pertenece a qué factor. Esto permite contrastar después la estructura que muestran los datos con la estructura teórica. Como los ítems se responden en una escala ordinal de seis categorías, el análisis se realiza sobre la matriz de correlaciones policóricas.
 
-Esta sección presenta la primera etapa del análisis: la adecuación de los datos para el análisis factorial y el número de factores sugerido.
+Esta sección presenta el análisis factorial exploratorio: la adecuación de los datos para factorizar, la decisión del número de factores (análisis paralelo y comparación de soluciones de 2 a 6 factores) y la interpretación de la solución de 4 factores, a partir de sus cargas factoriales y de las correlaciones entre factores. Finalmente, se evalúa la estructura circular de los valores mediante escalamiento multidimensional.
 
 ## Adecuación de los datos (KMO y Bartlett)
 
@@ -291,9 +308,188 @@ dplyr::tibble(
 
 La línea azul representa los autovalores de los datos observados y la línea roja punteada los autovalores esperables por azar. Se retienen los factores cuyo autovalor observado supera al simulado, lo que resulta en `r pa$nfact` factores. La línea gris punteada horizontal marca el autovalor 1, usado como referencia del criterio de Kaiser.
 
-# Síntesis del avance
+## Comparación de soluciones
 
-Los datos muestran una proporción baja de valores perdidos (`r fmt(n_codigos / n_celdas * 100, 1)`% de respuestas recodificadas) y son adecuados para el análisis factorial (KMO = `r fmt(kmo$MSA)`). El análisis paralelo sugiere `r pa$nfact` factores, número que se considera una referencia inicial.
+El análisis paralelo tiende a sugerir más factores de los interpretables cuando hay muchos casos. Por eso se contrasta con el criterio MAP de Velicer y con índices de ajuste de soluciones de 2 a 6 factores, estimadas sobre la matriz policórica con rotación oblicua (oblimin).
+
+```{r}
+#| label: criterios-factores
+nf <- nfactors(cor_poly$rho, n = 8, fm = "minres", n.obs = nrow(vals))
+k_map <- which.min(nf$map)
+
+ks <- 2:6
+fits <- map(ks, \(k) fa(cor_poly$rho, nfactors = k, n.obs = nrow(vals),
+                        fm = "minres", rotate = "oblimin")) |>
+  set_names(ks)
+```
+
+La figura compara cuatro criterios para decidir el número de factores. El Very Simple Structure alcanza sus valores más altos con pocos factores (entre 2 y 4, según la complejidad permitida a cada ítem). La complejidad promedio de los ítems aumenta a medida que se agregan factores. El BIC empírico y el residuo cuadrático medio (RMSR) disminuyen con cada factor adicional, con la mayor mejora entre 1 y 3 factores y ganancias menores desde ahí. En conjunto, estos criterios apuntan a soluciones de pocos factores, mientras que el análisis paralelo sugiere 6, por lo que se complementan con la tabla de ajuste y con la interpretación de las cargas.
+
+```{r}
+#| label: tbl-ajuste-efa
+#| tbl-cap: "Ajuste de las soluciones exploratorias"
+map_dfr(ks, \(k) {
+  m <- fits[[as.character(k)]]
+  tibble(
+    k       = k,
+    var     = sum(m$Vaccounted["Proportion Var", ]) * 100,
+    tli     = m$TLI,
+    rmsea   = m$RMSEA[["RMSEA"]],
+    rmsr    = m$rms,
+    bic     = m$BIC
+  )
+}) %>%
+  kbl(
+    col.names = c("Factores", "Varianza explicada (%)", "TLI", "RMSEA", "RMSR", "BIC"),
+    digits = c(0, 1, 2, 3, 3, 1),
+    format.args = list(decimal.mark = ",", big.mark = ".")
+  ) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+```
+
+El ajuste mejora de forma sostenida al agregar factores. Con 3 factores el RMSEA (0,072) y el RMSR (0,039) ya están dentro de los valores aceptables, mientras que el TLI llega a 0,88 con 4 factores y 0,89 con 5, algo por debajo del 0,90 usado como referencia. La solución de 6 factores es la primera que lo supera (TLI = 0,91), con una varianza explicada de 46,9%. El BIC disminuye con cada factor adicional, aunque la reducción se hace menor a medida que se agregan factores (1.756 puntos entre 2 y 3 factores, 281 entre 5 y 6). Los índices de ajuste por sí solos no permiten decidir entre las soluciones de 4 y de 6 factores, por lo que la elección depende también de la interpretabilidad de las cargas y de su correspondencia con la teoría.
+
+```{r}
+#| label: k-final
+# Decision del numero de factores a interpretar.
+k_final   <- 4
+efa_final <- fits[[as.character(k_final)]]
+```
+
+## Solución de `r k_final` factores
+
+```{r}
+#| label: tbl-cargas
+#| tbl-cap: "Cargas factoriales (oblimin, minres, correlaciones policóricas)"
+cargas <- unclass(efa_final$loadings) %>%
+  as.data.frame() %>%
+  rownames_to_column("item") %>%
+  left_join(item_valor, by = "item") %>%
+  mutate(
+    h2        = efa_final$communality[item],
+    principal = max.col(abs(across(starts_with("MR")))),
+    cmax      = apply(abs(across(starts_with("MR"))), 1, max)
+  ) %>%
+  arrange(principal, desc(cmax)) %>%
+  select(item, valor, starts_with("MR"), h2)
+
+cargas %>%
+  mutate(
+    across(starts_with("MR"),
+           ~ cell_spec(ifelse(abs(.x) < 0.30, "", fmt(.x)),
+                       bold = abs(.x) >= 0.40)),
+    h2 = fmt(h2)
+  ) %>%
+  kbl(escape = FALSE, align = "llrrrrr",
+      col.names = c("Ítem", "Valor teórico", paste0("F", seq_len(k_final)), "h²")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+```
+
+Se omiten cargas menores a 0,30 y se destacan en negrita las mayores o iguales a 0,40. La columna h² es la comunalidad de cada ítem.
+
+**Qué agrupa cada factor**
+
+- **F1, valores prosociales:** universalismo (03, 08, 19) y benevolencia (12, 18), junto con autodirección (11, 01), seguridad (05, 14) y un ítem de tradición (09). Cargas entre 0,36 y 0,75.
+- **F2, hedonismo y estimulación:** ítems 21, 15, 10 y 06. Cargas entre 0,49 y 0,74.
+- **F3, poder y logro:** ítems 04, 13, 02 y 17. Cargas entre 0,40 y 0,79.
+- **F4, conformidad y tradición:** conformidad (16, 07) y el ítem 20 de tradición. Cargas entre 0,56 y 0,58.
+
+**Comparación con las cuatro dimensiones de Schwartz**
+
+- **Autoensalzamiento (poder, logro):** se reproduce con claridad en F3.
+- **Apertura al cambio (autodirección, estimulación, hedonismo):** no aparece como un solo factor. Estimulación y hedonismo forman F2, y autodirección carga en F1.
+- **Conservación (seguridad, conformidad, tradición):** se divide. Conformidad y el ítem 20 de tradición forman F4, mientras que seguridad y el ítem 09 de tradición cargan en F1.
+- **Autotrascendencia (universalismo, benevolencia):** constituye el núcleo de F1, pero mezclada con autodirección y seguridad.
+
+```{r}
+#| label: tbl-phi
+#| tbl-cap: "Correlaciones entre factores"
+efa_final$Phi %>%
+  `colnames<-`(paste0("F", seq_len(k_final))) %>%
+  `rownames<-`(paste0("F", seq_len(k_final))) %>%
+  kbl(digits = 2, format.args = list(decimal.mark = ",")) %>%
+  kable_styling(full_width = FALSE)
+```
+
+La solución explica el `r fmt(sum(efa_final$Vaccounted["Proportion Var", ]) * 100, 1)`% de la varianza, con TLI = `r fmt(efa_final$TLI)`, RMSEA = `r fmt(efa_final$RMSEA[["RMSEA"]], 3)` y RMSR = `r fmt(efa_final$rms, 3)`.
+
+Los factores se correlacionan entre 0,06 y 0,51, lo que justifica el uso de una rotación oblicua. La asociación más alta es entre el segundo y el tercer factor (0,51), seguida de la del primero con el cuarto (0,40). La más baja es entre el primero y el tercero (0,06), pese a que, según la teoría de Schwartz, estos grupos de valores (autotrascendencia y autoensalzamiento) son opuestos y se esperaría una relación negativa. Este resultado puede estar influido por el uso de respuestas sin centrar. Ninguna correlación se acerca a 1, por lo que los factores se distinguen entre sí.
+
+**Otros aspectos de la solución**
+
+- El ítem 05 (seguridad) tiene una carga cruzada de 0,32 en F4.
+- Los dos ítems de tradición se separan: el 09 (humildad) carga en F1 y el 20 (tradiciones y costumbres) en F4.
+- El ítem 01 (autodirección) es el más débil: carga 0,36 y su comunalidad es 0,26.
+- Las comunalidades van de 0,26 a 0,62, es decir, los factores explican una proporción moderada de la varianza de los ítems.
+- Los factores correlacionan entre sí; la relación más alta es entre F2 y F3 (0,51) y la siguiente, entre F1 y F4 (0,40).
+
+Se puede decir que la estructura se aproxima parcialmente a la de Schwartz. Se recupera lo grueso (poder y logro; hedonismo y estimulación; conformidad y tradición), pero apertura al cambio y conservación no forman factores propios.
+
+# Estructura circular de los valores (MDS)
+
+Para evaluar la estructura circular se aplica escalamiento multidimensional (MDS ordinal) sobre los diez puntajes centrados. Valores compatibles deberían quedar cerca y valores opuestos lejos, formando un círculo.
+
+```{r}
+#| label: mds-calculo
+#| results: hide
+dimension <- c(
+  estimulacion = "Apertura al cambio", autodireccion = "Apertura al cambio",
+  hedonismo = "Apertura al cambio",
+  logro = "Autoensalzamiento", poder = "Autoensalzamiento",
+  seguridad = "Conservación", conformidad = "Conservación",
+  tradicion = "Conservación",
+  benevolencia = "Autotrascendencia", universalismo = "Autotrascendencia"
+)
+
+R_c <- cor(scores, use = "pairwise.complete.obs")
+D   <- sqrt(2 * (1 - R_c))             # distancia a partir de la correlación
+
+set.seed(123)
+mds_fit <- mds(D, ndim = 2, type = "ordinal")
+
+coords <- as.data.frame(mds_fit$conf) %>%
+  rownames_to_column("clave") %>%
+  mutate(valor = nombres[clave], dimension = dimension[clave])
+```
+
+```{r}
+#| label: fig-mds
+#| fig-cap: "Configuración MDS de los diez valores (puntajes centrados)"
+#| fig-width: 7
+#| fig-height: 6
+ggplot(coords, aes(D1, D2, color = dimension, label = valor)) +
+  geom_hline(yintercept = 0, color = "grey85") +
+  geom_vline(xintercept = 0, color = "grey85") +
+  geom_point(size = 3) +
+  geom_text(vjust = -0.9, show.legend = FALSE) +
+  coord_fixed() +
+  labs(x = "Dimensión 1", y = "Dimensión 2", color = NULL) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+El ajuste de la configuración fue de stress-1 = `r fmt(mds_fit$stress, 3)` (valores menores a 0,10 se consideran adecuados). Los valores, ordenados según su posición angular en el plano, quedan así:
+
+```{r}
+#| label: orden-angular
+coords %>%
+  mutate(angulo = atan2(D2, D1)) %>%
+  arrange(angulo) %>%
+  pull(valor) %>%
+  paste(collapse = " → ")
+```
+
+Al comparar este orden con el círculo teórico de Schwartz, los cuatro grupos de valores quedan en la secuencia esperada (apertura al cambio, autoensalzamiento, conservación y autotrascendencia), y hedonismo se ubica entre estimulación y logro, como predice la teoría. Hay diferencias dentro de los grupos seguridad aparece después de tradición, y universalismo y benevolencia en orden inverso al teórico. Con solo dos ítems por valor, el orden dentro de cada grupo es más inestable, por lo que el resultado se interpreta como consistente con la teoría en términos generales.
+
+# Conclusiones
+
+1.  Los datos son adecuados para el análisis factorial (KMO = `r fmt(kmo$MSA)` y prueba de Bartlett significativa).
+
+2.  El número de factores no queda definido por un único criterio. El análisis paralelo sugiere `r pa$nfact` factores y el criterio MAP `r k_map`. Los índices de ajuste mejoran con cada factor y solo la solución de 6 factores supera un TLI de 0,90. Se interpretó la solución de `r k_final` factores, por su correspondencia con las cuatro dimensiones teóricas, y queda pendiente revisar la de 6.
+
+3.  La solución de 4 factores reproduce parcialmente la estructura de Schwartz. Poder y logro forman un factor claro (autoensalzamiento), y estimulación y hedonismo también. En cambio, universalismo, benevolencia, autodirección y seguridad se agrupan en un mismo factor, y los ítems de conservación se reparten entre dos factores.
+
+4.  El escalamiento multidimensional ordena los valores de forma consistente, en términos generales, con el círculo teórico: los cuatro grupos quedan en la secuencia esperada y hedonismo se ubica entre estimulación y logro. Las diferencias aparecen dentro de los grupos (seguridad, universalismo y benevolencia), lo que es esperable con solo dos ítems por valor.
 
 # Referencias
 
